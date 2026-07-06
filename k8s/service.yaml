@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-react-vite-demo
+  labels:
+    app: jenkins-react-vite-demo
+spec:
+  type: LoadBalancer
+  selector:
+    app: jenkins-react-vite-demo
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80

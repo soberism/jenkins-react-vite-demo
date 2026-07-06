@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-react-vite-demo
+  labels:
+    app: jenkins-react-vite-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-react-vite-demo
+  template:
+    metadata:
+      labels:
+        app: jenkins-react-vite-demo
+    spec:
+      containers:
+        - name: web
+          image: localhost:8089/demo/jenkins-react-vite-demo:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
