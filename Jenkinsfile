@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'node22'
+    }
+
     options {
         timestamps()
         buildDiscarder(logRotator(numToKeepStr: '10'))
@@ -15,6 +19,8 @@ pipeline {
 
         stage('Install') {
             steps {
+                sh 'node -v'
+                sh 'npm -v'
                 sh 'npm ci'
             }
         }
